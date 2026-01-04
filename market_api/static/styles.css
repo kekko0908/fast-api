@@ -1,0 +1,266 @@
+@import url("https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,300;6..72,500;6..72,700&family=Space+Grotesk:wght@400;600;700&display=swap");
+
+:root {
+  color-scheme: light;
+  --ink: #101416;
+  --muted: #52616b;
+  --panel: #f6f2ea;
+  --panel-strong: #efe4d3;
+  --brand: #0f6b5f;
+  --accent: #d97c3f;
+  --shadow: 0 18px 40px rgba(16, 20, 22, 0.12);
+  --radius: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Newsreader", serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 15% 20%, #f7ede2 0%, transparent 45%),
+    radial-gradient(circle at 80% 10%, #f0f6f4 0%, transparent 40%),
+    linear-gradient(140deg, #f5f1e8 0%, #eef2f0 35%, #f3e7da 100%);
+}
+
+.shell {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 48px 28px 64px;
+  display: grid;
+  gap: 28px;
+}
+
+header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+h1 {
+  margin: 0;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: clamp(28px, 4vw, 44px);
+  letter-spacing: -0.02em;
+}
+
+.subtitle {
+  max-width: 520px;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr 1.1fr;
+    align-items: start;
+  }
+}
+
+.panel {
+  background: var(--panel);
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: var(--shadow);
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::after {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: calc(var(--radius) - 6px);
+  border: 1px solid rgba(16, 20, 22, 0.08);
+  pointer-events: none;
+}
+
+.panel h2 {
+  margin: 0 0 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.2rem;
+}
+
+label {
+  display: block;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 14px 16px;
+  font-size: 1rem;
+  border-radius: 14px;
+  border: 1px solid rgba(16, 20, 22, 0.15);
+  background: #fff;
+  font-family: "Space Grotesk", sans-serif;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+input[type="text"]:focus {
+  outline: none;
+  border-color: var(--brand);
+  box-shadow: 0 0 0 4px rgba(15, 107, 95, 0.15);
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+}
+
+button {
+  border: none;
+  border-radius: 999px;
+  padding: 12px 20px;
+  font-size: 0.95rem;
+  font-family: "Space Grotesk", sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button.primary {
+  background: var(--brand);
+  color: #fff;
+  box-shadow: 0 10px 18px rgba(15, 107, 95, 0.28);
+}
+
+button.secondary {
+  background: #fff;
+  color: var(--ink);
+  border: 1px solid rgba(16, 20, 22, 0.15);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+.hint {
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: var(--panel-strong);
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.chips {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.chip {
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: #fff;
+  border: 1px dashed rgba(16, 20, 22, 0.2);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.status {
+  margin-top: 18px;
+  font-size: 0.92rem;
+  color: var(--muted);
+  min-height: 24px;
+}
+
+.status strong {
+  color: var(--ink);
+}
+
+.results {
+  display: grid;
+  gap: 16px;
+}
+
+.empty {
+  padding: 22px;
+  border-radius: 18px;
+  border: 1px dashed rgba(16, 20, 22, 0.18);
+  color: var(--muted);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.card {
+  padding: 20px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 12px 24px rgba(16, 20, 22, 0.1);
+  animation: rise 0.5s ease both;
+}
+
+.card h3 {
+  margin: 0 0 6px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.05rem;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 0.92rem;
+  color: var(--muted);
+}
+
+.pill {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-family: "Space Grotesk", sans-serif;
+  background: rgba(15, 107, 95, 0.12);
+  color: var(--brand);
+}
+
+.pill.warn {
+  background: rgba(217, 124, 63, 0.18);
+  color: var(--accent);
+}
+
+.price {
+  font-size: 1.6rem;
+  font-family: "Space Grotesk", sans-serif;
+  margin: 12px 0 6px;
+}
+
+.keyline {
+  margin-top: 14px;
+  border-top: 1px solid rgba(16, 20, 22, 0.08);
+  padding-top: 12px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.loading .primary {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
