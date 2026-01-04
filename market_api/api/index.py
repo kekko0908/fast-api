@@ -25,8 +25,9 @@ class TickerRequest(BaseModel):
     tickers: list[str]
 
 
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
 STATIC_DIR = Path(__file__).resolve().parents[1] / "static"
-SCRAPER_PATH = Path(__file__).resolve().parents[1] / "scripts" / "scrape_prices.py"
+SCRAPER_PATH = PROJECT_ROOT / "scripts" / "scrape_prices.py"
 PYTHON_BIN = os.environ.get("PYTHON_BIN", "python")
 
 app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
